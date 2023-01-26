@@ -1,0 +1,25 @@
+.switch {
+    background: #1e2124;
+    width: 50px;
+    height: 25px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.switch-moveable {
+    width: 20px;
+    height: 20px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    border-radius: 100px;
+    transition: ease-in-out 0.5s;
+}
+
+.switch-moveable-off {
+    background: #36393e;
+    float: left;
+}
+
+.switch-moveable-on {
+    background: #7289da;
+    float: right;
+}

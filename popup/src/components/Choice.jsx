@@ -1,20 +1,31 @@
-import "./Choice.css";
-import { motion } from "framer-motion";
-import FeatherIcon from "feather-icons-react";
+import { motion } from 'framer-motion';
+import FeatherIcon from 'feather-icons-react';
+
+// files
+import './Choice.css';
 
 export default function (attributes) {
-  return (
-    <motion.div
-      whileHover={{ scale: [null, 1.3, 1.2] }}
-      transition={{ ease: "easeOut", duration: 0.3 }}
-      className="choice"
-    >
-      <FeatherIcon
-        width="50"
-        height="50"
-        color="#7289da"
-        icon={attributes.icon}
-      />
-    </motion.div>
-  );
+    function switchChange() {
+        attributes.setPage(attributes.pageName);
+    }
+
+    return (
+        <motion.button
+            whileHover={{ scale: [null, 1.3, 1.2] }}
+            transition={{ ease: 'easeOut', duration: 0.3 }}
+            onClick={switchChange}
+            className="choice"
+        >
+            {attributes.icon == null ? (
+                attributes.text
+            ) : (
+                <FeatherIcon
+                    width="50"
+                    height="50"
+                    color="#7289da"
+                    icon={attributes.icon}
+                />
+            )}
+        </motion.button>
+    );
 }

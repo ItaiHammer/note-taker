@@ -1,41 +1,52 @@
-import { motion } from "framer-motion";
-import FeatherIcon from "feather-icons-react";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import FeatherIcon from 'feather-icons-react';
 
 // file imports
-import "./App.css";
+import './App.css';
 
 // components
-import Choice from "./components/Choice.jsx";
+import Choice from './components/Choice.jsx';
+import Switch from './components/Switch';
+
+// pages
+import ChoicesPage from './pages/Choices.jsx';
+import YouTubePage from './pages/YouTube.jsx';
+import ButtonWithIcon from './components/ButtonWithIcon';
 
 function App() {
-  return (
-    <div className="App">
-      <motion.header
-        initial={{ y: -50 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-        className="App-header"
-      >
-        <h1>Note Taker</h1>
-      </motion.header>
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 2, ease: "easeInOut", delay: 1 }}
-        className="App-choice"
-      >
-        <p>What would you like me to take notes on?</p>
-        <div className="App-choice-row">
-          <Choice icon="youtube" />
-          <Choice icon="twitter" />
+    const [page, setPage] = useState('choices');
+    const [mode, setMode] = useState('summery');
+
+    console.log(page);
+
+    return (
+        <div className="App">
+            <motion.header
+                initial={{ y: -50 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1, ease: 'easeInOut' }}
+                className="App-header"
+            >
+                <ButtonWithIcon
+                    style={{ width: 30, height: 30, background: 'none' }}
+                    icon="home"
+                    setPage={setPage}
+                    pageName="choices"
+                    hover={false}
+                />
+                <h1>Note Taker</h1>
+                <Switch />
+            </motion.header>
+            {page == 'choices' ? (
+                <ChoicesPage setPage={setPage} />
+            ) : page == 'youtube' ? (
+                <YouTubePage />
+            ) : (
+                <></>
+            )}
         </div>
-        <div className="App-choice-row">
-          <Choice />
-          <Choice />
-        </div>
-      </motion.div>
-    </div>
-  );
+    );
 }
 
 export default App;
