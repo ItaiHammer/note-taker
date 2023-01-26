@@ -1,0 +1,15 @@
+{
+  "name": "Note Taker: powered by Chat GPT",
+  "description": "Takes YouTube videos and gives you a summerized transcript or bullet point version of the summery.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["alarms", "notifications", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Note Taker",
+    "default_popup": "popup/build/index.html"
+  },
+  "icons": {}
+}

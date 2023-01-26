@@ -1,0 +1,18 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "Official samples for Chrome Extensions and the Chrome Apps platform.\r Note that Chrome Apps are deprecated. Learn more [on the Chromium blog](https://blog.chromium.org/2020/08/changes-to-chrome-app-support-timeline.html).",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd popup && npm run build",
+    "start": "cd popup && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoogleChrome/chrome-extensions-samples.git"
+  },
+  "author": "Itai Hammer",
+  "license": "ISC",
+  "homepage": "."
+}
