@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
 
 // compoenents
 import Choice from '../components/Choice.jsx';

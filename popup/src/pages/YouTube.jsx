@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
 import YoutubeTranscript from 'youtube-transcript';
 
 // file imports
@@ -13,7 +13,10 @@ export default function (attributes) {
     const [url, setUrl] = useState('');
     const textarea = useRef();
 
-    // YoutubeTranscript.fetchTranscript(url).then(console.log);
+    const handleUrlChange = (event) => {
+        setUrl(event.target.value);
+        console.log(url);
+    };
 
     return (
         <motion.div
@@ -27,6 +30,8 @@ export default function (attributes) {
                 className="youtube-urlInput"
                 placeholder="YouTube Link"
                 ref={textarea}
+                onChange={handleUrlChange}
+                value={url}
             ></input>
             <ButtonWithIcon
                 style={{
@@ -42,6 +47,18 @@ export default function (attributes) {
                 click={() => {
                     setUrl(textarea.current.value);
                     console.log(url);
+                    console.log(
+                        textarea.current.value.substring(
+                            textarea.current.value.indexOf('v=') + 2
+                        )
+                    );
+                    YoutubeTranscript.fetchTranscript(
+                        textarea.current.value.substring(
+                            textarea.current.value.indexOf('v=') + 2
+                        )
+                    ).then((e) => {
+                        console.log(e);
+                    });
                 }}
             />
         </motion.div>

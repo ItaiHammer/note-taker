@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
 import FeatherIcon from 'feather-icons-react';
+import React from 'react';
 
 // file imports
 import './App.css';

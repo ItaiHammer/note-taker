@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import React from 'react';
+import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
 import FeatherIcon from 'feather-icons-react';
 
 // files
